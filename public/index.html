@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IT岗位求职记录系统</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>IT岗位求职记录系统</h1>
+      <p class="student">学号：<strong>20234170</strong>，姓名：<strong>张黎健</strong></p>
+    </header>
+
+    <main class="container">
+      <section class="card stats-card">
+        <div class="list-header">
+          <h2>数据统计可视化</h2>
+          <div class="status">基于当前岗位数据的图形化统计</div>
+        </div>
+        <div class="charts">
+          <div class="chart-block">
+            <h3>企业岗位占比（Top 5）</h3>
+            <canvas id="companyChart" class="chart-canvas"></canvas>
+          </div>
+          <div class="chart-block">
+            <h3>薪资区间分布</h3>
+            <canvas id="salaryChart" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="card form-card">
+          <h2 id="form-title">添加岗位</h2>
+          <form id="job-form">
+            <div class="row">
+              <label>企业名称<span class="required">*</span></label>
+              <input type="text" id="company" placeholder="请输入企业名称" required />
+            </div>
+            <div class="row">
+              <label>岗位名称<span class="required">*</span></label>
+              <input type="text" id="title" placeholder="请输入岗位名称" required />
+            </div>
+            <div class="row">
+              <label>薪资</label>
+              <input type="text" id="salary" placeholder="例如：12-15K / 月" />
+            </div>
+            <div class="row">
+              <label>具体要求</label>
+              <textarea id="requirements" rows="4" placeholder="技能、经验、学历等要求"></textarea>
+            </div>
+            <div class="actions">
+              <button type="submit" id="submit-btn" class="primary">添加岗位</button>
+              <button type="button" id="reset-btn" class="secondary">重置</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card list-card">
+          <div class="list-header">
+            <h2>岗位列表与筛选</h2>
+            <div class="status">当前岗位数：<span id="job-count">0</span></div>
+          </div>
+          <div class="filters">
+            <input type="text" id="q" placeholder="关键字（企业/岗位/要求）" />
+            <input type="text" id="companyFilter" placeholder="企业筛选" />
+            <input type="text" id="titleFilter" placeholder="岗位筛选" />
+            <button id="filter-btn" class="outline">筛选</button>
+            <button id="clear-filter-btn" class="secondary">清空筛选</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>企业名称</th>
+                  <th>岗位名称</th>
+                  <th>薪资</th>
+                  <th>具体要求</th>
+                  <th>创建时间</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody id="jobs-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">© 2025 求职记录系统</footer>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <div class="loading-text">加载中…</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>

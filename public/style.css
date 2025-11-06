@@ -1,0 +1,105 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #ffffff;
+  --text: #24292f;
+  --muted: #57606a;
+  --primary: #0969da;
+  --primary-600: #0758b8;
+  --border: #d0d7de;
+  --danger: #d1242f;
+  --accent: #0ea5e9;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 16px;
+}
+.header h1 { margin: 0 0 6px 0; font-size: 22px; }
+.header .student { margin: 0; font-size: 14px; color: var(--muted); }
+
+.container { max-width: 1280px; margin: 24px auto; padding: 0 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 20px; align-items: stretch; }
+.stats-card { margin-bottom: 16px; }
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  height: 100%;
+}
+.form-card { align-self: stretch; }
+.list-card { align-self: stretch; display: flex; flex-direction: column; }
+
+h2 { margin: 0 0 12px 0; font-size: 18px; }
+
+.row { display: flex; flex-direction: column; margin-bottom: 12px; }
+.row label { font-size: 14px; margin-bottom: 6px; color: var(--muted); }
+.row input, .row textarea {
+  padding: 10px 12px;
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.row input:focus, .row textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(9,105,218,0.2); }
+.required { color: var(--danger); margin-left: 4px; }
+
+.actions { display: flex; gap: 10px; }
+button {
+  padding: 10px 14px;
+  border: 1px solid #1d2759;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .08s ease, background .2s;
+}
+button:hover { background: var(--primary-600); }
+button:active { transform: scale(0.98); }
+button.primary { background: var(--primary); }
+button.secondary { background: #f6f8fa; color: var(--text); border-color: var(--border); }
+button.outline { background: transparent; color: var(--accent); border-color: var(--accent); }
+button.link { background: transparent; color: var(--accent); border: none; padding: 4px 6px; }
+button.danger { color: var(--danger); }
+
+.list-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.status { color: var(--muted); font-size: 13px; }
+
+.charts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+.chart-block h3 { margin: 6px 0 10px; font-size: 16px; color: var(--text); }
+.chart-canvas { width: 100% !important; height: 260px !important; }
+
+.filters { display: grid; grid-template-columns: 1fr 1fr 1fr auto auto; gap: 8px; margin-bottom: 12px; }
+.filters input { width: 100%; }
+
+.table-wrap { overflow: auto; max-height: 640px; border: 1px solid var(--border); border-radius: 10px; flex: 1; }
+table { width: 100%; border-collapse: collapse; }
+thead th { position: sticky; top: 0; background: #ffffff; z-index: 1; }
+th, td { border-bottom: 1px solid var(--border); text-align: left; padding: 10px; vertical-align: top; }
+tbody tr:nth-child(odd) { background: #f9fafb; }
+tbody tr:hover { background: rgba(9,105,218,0.08); }
+td.requirements { max-width: 480px; }
+td.empty { text-align: center; color: var(--muted); }
+.cell-actions { white-space: nowrap; }
+.cell-actions .link { margin-right: 8px; }
+
+.footer { text-align: center; color: var(--muted); font-size: 12px; padding: 16px; }
+
+.loading { position: fixed; inset: 0; background: rgba(255,255,255,0.65); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+.loading .spinner { width: 38px; height: 38px; border: 4px solid rgba(0,0,0,0.15); border-top-color: var(--text); border-radius: 50%; animation: spin 1s linear infinite; }
+.loading .loading-text { color: var(--text); font-size: 14px; }
+.hidden { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
